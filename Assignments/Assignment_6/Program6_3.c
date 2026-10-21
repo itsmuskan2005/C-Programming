@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void CalculateDiscount(float fAmount)
+{
+    float fDiscount = 0.0f;
+    float fPayableAmount = 0.0f;
+
+    if(fAmount < 0)
+    {
+        printf("invalid purchase amount\n");
+        return;
+    }
+    else if(fAmount < 1000)
+    {
+        fDiscount = 0.0f;
+    }
+    else if(fAmount < 5000)
+    {
+        fDiscount = fAmount * 0.10f;
+    }
+    else
+    {
+        fDiscount = fAmount * 0.20f;
+    }
+
+    fPayableAmount = fAmount - fDiscount;
+
+    printf("payable amount = %2f\n", fPayableAmount);
+}
+int main()
+{
+    float fAmount = 0.0f;
+
+    printf("enter purchase amount:");
+    scanf("%f",&fAmount);
+
+    CalculateDiscount(fAmount);
+
+    return EXIT_SUCCESS;
+}
